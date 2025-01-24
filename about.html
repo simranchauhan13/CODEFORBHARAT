@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaf6ff;
+            color: #003366;
+        }
+
+        header {
+            background-color: #00509e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            animation: slideDown 1s ease-out;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f0f8ff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.5s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+            background-color: #e0f2ff;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            animation: fadeIn 1.5s ease;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #00509e;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #003366;
+            transform: scale(1.1);
+        }
+
+        .details {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+    </header>
+    <div class="container">
+        <p>
+            Welcome to our app, your trusted partner for reliable and professional services. Whether you need a skilled plumber or an experienced electrician, we are here to make your life easier. Our mission is to bridge the gap between you and top-rated service professionals, ensuring that your home or workplace issues are resolved efficiently and effectively.
+        </p>
+        <div class="details" id="details">
+            <p>
+                Our app was designed with simplicity and convenience in mind. We understand that life can be unpredictable, and home maintenance issues often arise at the most inconvenient times. That’s why we’ve created a platform where you can find certified plumbers and electricians at the click of a button. From fixing a leaking faucet to troubleshooting electrical circuits, we connect you with professionals who are highly trained and committed to excellence.
+            </p>
+            <p>
+                What sets us apart is our dedication to quality and customer satisfaction. Our services are available 24/7, ensuring that help is just a few clicks away, no matter the time or day. With transparent pricing and a seamless booking process, we take the hassle out of finding reliable service providers. Whether it’s a minor repair or a major installation, you can trust us to deliver top-notch solutions tailored to your needs.
+            </p>
+            <p>
+                At the heart of our operations is a commitment to building trust and lasting relationships with our users. By leveraging the latest technology, we aim to provide an intuitive and efficient experience. Join our growing community of satisfied customers and discover the difference of working with true professionals who care about your comfort and safety.
+            </p>
+        </div>
+        <button id="readMoreBtn">Read More</button>
+    </div>
+
+    <script>
+        const readMoreBtn = document.getElementById('readMoreBtn');
+        const details = document.getElementById('details');
+
+        readMoreBtn.addEventListener('click', () => {
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.style.display = 'block';
+                readMoreBtn.style.marginTop = '20px';
+                readMoreBtn.textContent = 'Read Less';
+            } else {
+                details.style.display = 'none';
+                readMoreBtn.style.marginTop = '20px';
+                readMoreBtn.textContent = 'Read More';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plumber Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(to right, #dbeafe, #eef2ff);
+            color: black;
+        }
+
+        .details-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #93c5fd;
+        }
+
+        h1 {
+            color: #1e40af;
+        }
+
+        button {
+            background: #3b82f6;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background: #2563eb;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="details-container">
+        <img id="plumberImg" src="" alt="Plumber">
+        <h1 id="plumberName"></h1>
+        <p id="plumberDescription"></p>
+        <p><strong>Price Range + Material Cost:</strong> <span id="plumberPrice"></span> INR</p>
+        <button onclick="bookPlumber()">Book Now</button>
+        <button onclick="goBack()">Back</button>
+    </div>
+
+    <script>
+        // Extract URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const price = urlParams.get('price');
+        const description = urlParams.get('description');
+        const img = urlParams.get('img');
+
+        // Display plumber details
+        document.getElementById('plumberName').innerText = name;
+        document.getElementById('plumberDescription').innerText = description;
+        document.getElementById('plumberPrice').innerText = price;
+        document.getElementById('plumberImg').src = img;
+
+        function bookPlumber() {
+            alert("Plumber booked successfully!");
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

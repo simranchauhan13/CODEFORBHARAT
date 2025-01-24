@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plumber Profiles</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Overall Page Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(to right, #dbeafe, #eef2ff); /* Soft blue gradient */
+            color: black;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* Plumber List */
+        .plumber-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .plumber-item {
+            background: linear-gradient(to right, #ffffff, #f0f4ff);
+            margin: 10px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 95%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .plumber-item:hover {
+            transform: scale(1.05);
+            box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.15);
+            background: #e0e7ff;
+        }
+
+        .plumber-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 2px solid #93c5fd; /* Subtle blue border */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: #1e40af;">Available Plumbers</h1>
+        <div class="plumber-list" id="plumberList"></div>
+    </div>
+
+    <script>
+        const plumbers = [
+            { name: "Amit Singh", price: "300-1000 + material cost", description: "Expert in pipe fitting and leak repairs.", img:"C:\Users\HP\Downloads\images.png" },
+            { name: "Rajesh Kumar", price: "400-1200 + material cost", description: "Specialist in bathroom plumbing work.", img:"C:\Users\HP\Downloads\images.png" },
+            { name: "Suresh Gupta", price: "500-1500 + material cost", description: "Experienced in water heater installation.", img: "C:\Users\HP\Downloads\images.png" },
+            { name: "Vikram Yadav", price: "600-1800 + material cost", description: "Professional in underground plumbing systems.", img: "C:\Users\HP\Downloads\images.png" },
+            { name: "Manoj Verma", price: "350-1100 + material cost", description: "Expert in fixing clogged drains.", img: "C:\Users\HP\Downloads\images.png" },
+            { name: "Ashok Mehta", price: "450-1300 + material cost", description: "Specialist in faucet and fixture installations.", img: "C:\Users\HP\Downloads\images.png" },
+            { name: "Jitendra Sharma", price: "550-1600 + material cost", description: "Certified plumber with 10+ years of experience.", img: "C:\Users\HP\Downloads\images.png" },
+            { name: "Prakash Tiwari", price: "650-2000 + material cost", description: "Expert in industrial plumbing solutions.", img:"C:\Users\HP\Downloads\images.png" }
+        ];
+
+        const plumberList = document.getElementById("plumberList");
+
+        function displayPlumbers() {
+            plumberList.innerHTML = "";
+            plumbers.forEach((plumber, index) => {
+                const plumberDiv = document.createElement("div");
+                plumberDiv.className = "plumber-item";
+                plumberDiv.innerHTML = `<img src="${plumber.img}" alt="Plumber"> <div><h3>${plumber.name}</h3><p>${plumber.description}</p></div>`;
+                plumberDiv.onclick = () => showDetails(index);
+                plumberList.appendChild(plumberDiv);
+            });
+        }
+
+        function showDetails(index) {
+            const plumber = plumbers[index];
+            const url = `E:/urbanclap-clone/new1.html?name=${encodeURIComponent(plumber.name)}&description=${encodeURIComponent(plumber.description)}&price=${encodeURIComponent(plumber.price)}&img=${encodeURIComponent(plumber.img)}`;
+            window.location.href = url;
+        }
+
+        displayPlumbers();
+    </script>
+</body>
+</html>

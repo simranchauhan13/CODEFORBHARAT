@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrician Profiles</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Overall Page Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(to right, #dbeafe, #eef2ff); /* Soft blue gradient */
+            color: black;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* Electrician List */
+        .electrician-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .electrician-item {
+            background: linear-gradient(to right, #ffffff, #f0f4ff);
+            margin: 10px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 95%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .electrician-item:hover {
+            transform: scale(1.05);
+            box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.15);
+            background: #e0e7ff;
+        }
+
+        .electrician-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 2px solid #93c5fd; /* Subtle blue border */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: #1e40af;">Available Electricians</h1>
+        <div class="electrician-list" id="electricianList"></div>
+    </div>
+
+    <script>
+        const electricians = [
+            { name: "Rahul Sharma", price: "400-1200 + material cost", description: "Expert in home wiring and electrical repair.", img: "E:/urbanclap-clone/2.jpg" },
+            { name: "Deepak Verma", price: "500-1400 + material cost", description: "Specialist in commercial electrical work.", img: "E:/urbanclap-clone/2.jpg" },
+            { name: "Sanjay Mehta", price: "600-1600 + material cost", description: "Experienced in fan and light installations.", img: "E:/urbanclap-clone/2.jpg" },
+            { name: "Vinod Kumar", price: "700-1700 + material cost", description: "Professional in circuit breaker repairs.", img: "E:/urbanclap-clone/2.jpg" },
+            { name: "Arvind Yadav", price: "450-1300 + material cost", description: "Expert in short circuit fixing.", img: "E:/urbanclap-clone/2.jpg" },
+            { name: "Nitin Gupta", price: "550-1500 + material cost", description: "Specialist in electrical panel installations.", img: "E:/urbanclap-clone/2.jpg" },
+            { name: "Anil Tiwari", price: "650-1600 + material cost", description: "Certified electrician with 8+ years of experience.", img: "E:/urbanclap-clone/2.jpg" },
+            { name: "Rakesh Pandey", price: "750-1800 + material cost", description: "Expert in industrial electrical solutions.", img: "E:/urbanclap-clone/2.jpg" }
+        ];
+
+        const electricianList = document.getElementById("electricianList");
+
+        function displayElectricians() {
+            electricianList.innerHTML = "";
+            electricians.forEach((electrician, index) => {
+                const electricianDiv = document.createElement("div");
+                electricianDiv.className = "electrician-item";
+                electricianDiv.innerHTML = `<img src="${electrician.img}" alt="Electrician"> <div><h3>${electrician.name}</h3><p>${electrician.description}</p></div>`;
+                electricianDiv.onclick = () => showDetails(index);
+                electricianList.appendChild(electricianDiv);
+            });
+        }
+
+        function showDetails(index) {
+            const electrician = electricians[index];
+            const url = `E:/urbanclap-clone/new1.html?name=${encodeURIComponent(electrician.name)}&description=${encodeURIComponent(electrician.description)}&price=${encodeURIComponent(electrician.price)}&img=${encodeURIComponent(electrician.img)}`;
+            window.location.href = url;
+        }
+
+        displayElectricians();
+    </script>
+</body>
+</html>
